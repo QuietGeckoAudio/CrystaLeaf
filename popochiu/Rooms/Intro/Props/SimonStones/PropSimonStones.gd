@@ -10,7 +10,7 @@ func _ready():
 		self,
 		'rotation_degrees',
 		0, 360,
-		3.5,
+		2.7,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN
 	)

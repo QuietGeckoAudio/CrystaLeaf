@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://popochiu/Rooms/Intro/RoomIntro.gd" type="Script" id=1]
-[ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.gd" type="Script" id=2]
 [ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://popochiu/Rooms/Intro/Props/Shield/PropShield.gd" type="Script" id=4]
 [ext_resource path="res://popochiu/Rooms/Intro/Props/SimonStones/PropSimonStones.gd" type="Script" id=5]
@@ -27,11 +26,7 @@ limit_bottom = 0.0
 
 [node name="Props" type="Node2D" parent="."]
 
-[node name="Background" type="Area2D" parent="Props" instance=ExtResource( 3 )]
-script = ExtResource( 2 )
-__meta__ = {
-"_editor_description_": ""
-}
+[node name="Background" parent="Props" instance=ExtResource( 3 )]
 description = "Background"
 clickable = false
 cursor = 1
@@ -41,35 +36,11 @@ texture = ExtResource( 6 )
 [node name="Shield" parent="Props" instance=ExtResource( 3 )]
 z_index = 2
 script = ExtResource( 4 )
-__meta__ = {
-"_editor_description_": ""
-}
 description = "Shield"
 cursor = 1
 script_name = "Shield"
 always_on_top = true
 texture = ExtResource( 7 )
-
-[node name="BaselineHelper" parent="Props/Shield" index="0"]
-visible = false
-points = PoolVector2Array( -10000, 0, 10000, 0 )
-width = 1.0
-
-[node name="WalkToHelper" parent="Props/Shield" index="1"]
-visible = false
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect" parent="Props/Shield/WalkToHelper" index="0"]
-margin_left = -2.5
-margin_top = -2.5
-margin_right = 2.5
-margin_bottom = 2.5
-color = Color( 0, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" parent="Props/Shield" index="2"]
 texture = ExtResource( 7 )
@@ -78,10 +49,8 @@ texture = ExtResource( 7 )
 shape = SubResource( 1 )
 
 [node name="SimonStones" parent="Props" instance=ExtResource( 3 )]
+rotation = 1.94805
 script = ExtResource( 5 )
-__meta__ = {
-"_editor_description_": ""
-}
 description = "SimonStones"
 cursor = 1
 script_name = "SimonStones"
@@ -89,29 +58,17 @@ texture = ExtResource( 8 )
 
 [node name="BaselineHelper" parent="Props/SimonStones" index="0"]
 visible = false
-points = PoolVector2Array( -10000, 0, 10000, 0 )
-width = 1.0
 
 [node name="WalkToHelper" parent="Props/SimonStones" index="1"]
 visible = false
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect" parent="Props/SimonStones/WalkToHelper" index="0"]
-margin_left = -2.5
-margin_top = -2.5
-margin_right = 2.5
-margin_bottom = 2.5
-color = Color( 0, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" parent="Props/SimonStones" index="2"]
 texture = ExtResource( 8 )
 
 [node name="Tween" type="Tween" parent="Props/SimonStones"]
+repeat = true
+playback/active = true
+playback/repeat = true
 
 [node name="Stone2" parent="Props/SimonStones" instance=ExtResource( 3 )]
 position = Vector2( 0, -68 )
@@ -139,6 +96,12 @@ cursor = 1
 script_name = "Stone"
 stone = "C"
 
+[node name="BaselineHelper" parent="Props/SimonStones/Stone3" index="0"]
+visible = false
+
+[node name="WalkToHelper" parent="Props/SimonStones/Stone3" index="1"]
+visible = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Props/SimonStones/Stone3"]
 rotation = 0.785398
 shape = SubResource( 2 )
@@ -164,9 +127,6 @@ shape = SubResource( 2 )
 [node name="Stone" parent="Props/SimonStones" instance=ExtResource( 3 )]
 position = Vector2( -68, 0 )
 script = ExtResource( 10 )
-__meta__ = {
-"_editor_description_": ""
-}
 description = "Stone"
 cursor = 1
 script_name = "Stone"
@@ -174,24 +134,9 @@ stone = "A"
 
 [node name="BaselineHelper" parent="Props/SimonStones/Stone" index="0"]
 visible = false
-points = PoolVector2Array( -10000, 0, 10000, 0 )
-width = 1.0
 
 [node name="WalkToHelper" parent="Props/SimonStones/Stone" index="1"]
 visible = false
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect" parent="Props/SimonStones/Stone/WalkToHelper" index="0"]
-margin_left = -2.5
-margin_top = -2.5
-margin_right = 2.5
-margin_bottom = 2.5
-color = Color( 0, 1, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Props/SimonStones/Stone"]
 rotation = 0.785398
