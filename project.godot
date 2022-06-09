@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="CrystaLeaf"
-run/main_scene="res://popochiu/Rooms/Inicio/RoomInicio.tscn"
+run/main_scene="res://popochiu/Rooms/Intro/RoomIntro.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -1,0 +1,220 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://popochiu/Rooms/Intro/RoomIntro.gd" type="Script" id=1]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.gd" type="Script" id=2]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://popochiu/Rooms/Intro/Props/Shield/PropShield.gd" type="Script" id=4]
+[ext_resource path="res://popochiu/Rooms/Intro/Props/SimonStones/PropSimonStones.gd" type="Script" id=5]
+[ext_resource path="res://popochiu/Rooms/Intro/background_intro.png" type="Texture" id=6]
+[ext_resource path="res://popochiu/Rooms/Intro/Props/Shield/shield.png" type="Texture" id=7]
+[ext_resource path="res://popochiu/Rooms/Intro/Props/SimonStones/simon_stones.png" type="Texture" id=8]
+[ext_resource path="res://popochiu/Characters/Mago/CharacterMago.tscn" type="PackedScene" id=9]
+[ext_resource path="res://popochiu/Rooms/Intro/Props/Stone/PropStone.gd" type="Script" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.0606
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13, 13 )
+
+[node name="RoomIntro" type="Node2D"]
+script = ExtResource( 1 )
+script_name = "Intro"
+limit_left = 0.0
+limit_right = 0.0
+limit_top = 0.0
+limit_bottom = 0.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" type="Area2D" parent="Props" instance=ExtResource( 3 )]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+description = "Background"
+clickable = false
+cursor = 1
+script_name = "Background"
+texture = ExtResource( 6 )
+
+[node name="Shield" parent="Props" instance=ExtResource( 3 )]
+z_index = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+description = "Shield"
+cursor = 1
+script_name = "Shield"
+always_on_top = true
+texture = ExtResource( 7 )
+
+[node name="BaselineHelper" parent="Props/Shield" index="0"]
+visible = false
+points = PoolVector2Array( -10000, 0, 10000, 0 )
+width = 1.0
+
+[node name="WalkToHelper" parent="Props/Shield" index="1"]
+visible = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" parent="Props/Shield/WalkToHelper" index="0"]
+margin_left = -2.5
+margin_top = -2.5
+margin_right = 2.5
+margin_bottom = 2.5
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" parent="Props/Shield" index="2"]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Shield"]
+shape = SubResource( 1 )
+
+[node name="SimonStones" parent="Props" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+description = "SimonStones"
+cursor = 1
+script_name = "SimonStones"
+texture = ExtResource( 8 )
+
+[node name="BaselineHelper" parent="Props/SimonStones" index="0"]
+visible = false
+points = PoolVector2Array( -10000, 0, 10000, 0 )
+width = 1.0
+
+[node name="WalkToHelper" parent="Props/SimonStones" index="1"]
+visible = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" parent="Props/SimonStones/WalkToHelper" index="0"]
+margin_left = -2.5
+margin_top = -2.5
+margin_right = 2.5
+margin_bottom = 2.5
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" parent="Props/SimonStones" index="2"]
+texture = ExtResource( 8 )
+
+[node name="Tween" type="Tween" parent="Props/SimonStones"]
+
+[node name="Stone2" parent="Props/SimonStones" instance=ExtResource( 3 )]
+position = Vector2( 0, -68 )
+script = ExtResource( 10 )
+description = "Stone"
+cursor = 1
+script_name = "Stone"
+stone = "B"
+
+[node name="BaselineHelper" parent="Props/SimonStones/Stone2" index="0"]
+visible = false
+
+[node name="WalkToHelper" parent="Props/SimonStones/Stone2" index="1"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/SimonStones/Stone2"]
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="Stone3" parent="Props/SimonStones" instance=ExtResource( 3 )]
+position = Vector2( 68, 0 )
+script = ExtResource( 10 )
+description = "Stone"
+cursor = 1
+script_name = "Stone"
+stone = "C"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/SimonStones/Stone3"]
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="Stone4" parent="Props/SimonStones" instance=ExtResource( 3 )]
+position = Vector2( 0, 68 )
+script = ExtResource( 10 )
+description = "Stone"
+cursor = 1
+script_name = "Stone"
+stone = "D"
+
+[node name="BaselineHelper" parent="Props/SimonStones/Stone4" index="0"]
+visible = false
+
+[node name="WalkToHelper" parent="Props/SimonStones/Stone4" index="1"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/SimonStones/Stone4"]
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="Stone" parent="Props/SimonStones" instance=ExtResource( 3 )]
+position = Vector2( -68, 0 )
+script = ExtResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+description = "Stone"
+cursor = 1
+script_name = "Stone"
+stone = "A"
+
+[node name="BaselineHelper" parent="Props/SimonStones/Stone" index="0"]
+visible = false
+points = PoolVector2Array( -10000, 0, 10000, 0 )
+width = 1.0
+
+[node name="WalkToHelper" parent="Props/SimonStones/Stone" index="1"]
+visible = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" parent="Props/SimonStones/Stone/WalkToHelper" index="0"]
+margin_left = -2.5
+margin_top = -2.5
+margin_right = 2.5
+margin_bottom = 2.5
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/SimonStones/Stone"]
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Navigation2D" type="Navigation2D" parent="WalkableAreas"]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterMago" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( 0, 15 )
+
+[editable path="Props/Shield"]
+[editable path="Props/SimonStones"]
+[editable path="Props/SimonStones/Stone2"]
+[editable path="Props/SimonStones/Stone3"]
+[editable path="Props/SimonStones/Stone4"]
+[editable path="Props/SimonStones/Stone"]

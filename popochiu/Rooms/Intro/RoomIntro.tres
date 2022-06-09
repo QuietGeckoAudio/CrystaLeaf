@@ -3,7 +3,7 @@
 [ext_resource path="res://addons/Popochiu/Engine/Objects/Room/PopochiuRoomData.gd" type="Script" id=1]
 
 [resource]
-resource_name = "Inicio"
+resource_name = "Intro"
 script = ExtResource( 1 )
-script_name = "Inicio"
-scene = "res://popochiu/Rooms/Inicio/RoomInicio.tscn"
+script_name = "Intro"
+scene = "res://popochiu/Rooms/Intro/RoomIntro.tscn"

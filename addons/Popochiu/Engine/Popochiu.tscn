@@ -5,13 +5,13 @@
 [ext_resource path="res://addons/Popochiu/Engine/Popochiu.gd" type="Script" id=3]
 [ext_resource path="res://addons/Popochiu/Engine/Objects/TransitionLayer/TransitionLayer.gd" type="Script" id=4]
 [ext_resource path="res://addons/Popochiu/Engine/Objects/GraphicInterface/GraphicInterface.gd" type="Script" id=5]
-[ext_resource path="res://popochiu/Rooms/Inicio/RoomInicio.tres" type="Resource" id=6]
+[ext_resource path="res://popochiu/Rooms/Intro/RoomIntro.tres" type="Resource" id=6]
 [ext_resource path="res://popochiu/Rooms/Arbol/RoomArbol.tres" type="Resource" id=7]
 [ext_resource path="res://popochiu/Characters/Mago/CharacterMago.tres" type="Resource" id=8]
 
 [node name="Popochiu" type="Node"]
 script = ExtResource( 3 )
-rooms = [ ExtResource( 6 ), ExtResource( 7 ) ]
+rooms = [ null, ExtResource( 7 ), ExtResource( 6 ) ]
 characters = [ ExtResource( 8 ) ]
 skip_cutscene_time = 0.25
 text_speeds = [ 0.05, 0.01, 0.0 ]
